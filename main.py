@@ -2,6 +2,7 @@ from pathlib import Path
 import pandas as pd
 import tarfile
 import urllib.request
+import matplotlib.pyplot as plt
 
 def load_housing_data(url = "https://github.com/ageron/data/raw/main/housing.tgz"):
     tarball_path = Path("datasets/housing.tg")
@@ -14,8 +15,8 @@ def load_housing_data(url = "https://github.com/ageron/data/raw/main/housing.tgz
 
 def main():
     housing = load_housing_data()
-    housing.head()
-
+    housing.hist(bins=50, figsize=(12, 8))
+    plt.show()
 
 if __name__ == "__main__":
     main()
